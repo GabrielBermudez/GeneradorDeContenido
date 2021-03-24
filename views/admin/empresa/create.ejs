@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('../../layouts/head');%></head>
+<body>
+	<header><%- include('../../layouts/header');%></header>
+	<div class="d-flex justify-content-center">
+		<h1>Crear Empresa</h1>
+	</div>
+	<div class="d-flex justify-content-center" >
+		<form method="POST" action="/admin/empresa/create" id="form">
+			<%- include('_form');%>
+		</form>	
+	</div>
+	
+	<footer><%- include('../../layouts/footer');%></footer>
+</body>
+</html>

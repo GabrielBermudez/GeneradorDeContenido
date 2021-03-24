@@ -1,0 +1,58 @@
+<div class="mb-3">
+  <label for="label-denominacion" class="form-label">Denominación</label>
+  <input type="text" class="form-control" id="denominacion" name="denominacion" placeholder="Toyota" value="<%=empresa?empresa.denominacion:''%>">
+  <label for="" id="labelDenominacion"></label>
+</div>
+	<div class="mb-3">
+  <label for="label-telefono" class="form-label">Teléfono</label>
+  <input type="number" class="form-control" id="telefono" name="telefono" placeholder="+54 261 614 5079" value="<%=empresa?empresa.telefono:''%>">
+  <label for="" id="labelTelefono"></label>
+</div>
+<div class="mb-3">
+	<%
+		let horarios = empresa.horario_atencion.split('-')
+	%>
+  <label for="label-horario-atencion" class="form-label">Horario de Atención</label> <br>
+  <label for="">Desde</label>
+  <input type="time" class="form-control" id="horario-atencion-desde" name="horario_atencion_desde" value="<%=horarios[0]%>">
+  <label for="">Hasta</label>
+  <input type="time" class="form-control" id="horario-atencion-hasta" name="horario_atencion_hasta" value="<%=horarios[1]%>">
+
+  <label for="" id="labelHorarioAtencion"></label>
+</div>
+<div class="mb-3">
+  <label for="label-quienes-somos" class="form-label">¿Quienes Somos?</label>
+  <textarea id="quienes-somos" class="form-control" name="quienes_somos" rows="4" cols="50" form="form" placeholder="Breve descripción..."><%=empresa?empresa.quienes_somos:''%></textarea>	
+  <label for="" id="labelQuienesSomos"></label
+  	>
+</div>
+<div class="mb-3">
+  <label for="label-domicilio" class="form-label">Domicilio</label>
+  <input type="text" class="form-control" id="domicilio" name="domicilio" placeholder="Ockland 245" value="<%=empresa?empresa.domicilio:''%>">
+  <label for="" id="labelDomicilio"></label>
+</div>
+<div class="mb-3">
+  <label for="label-email" class="form-label">Email</label>
+  <input type="email" class="form-control" id="email" name="email" placeholder="...@gmail.com" value="<%=empresa?empresa.email:''%>">
+  <label for="" id="labelEmail"></label>
+</div>
+<div class="mb-3">
+ 	<label for="label-latitud" class="form-label">Latitud</label>
+  	<input type="number" class="form-control" id="latitud" name="latitud" placeholder="34.567345" step="0.00000000001" value="<%=empresa?empresa.latitud:''%>" readonly="true">
+  	<label for="" id="labelLatitud"></label>
+</div>
+<div class="mb-3">
+  	<label for="label-longitud" class="form-label">Longitud</label>
+  	<input type="number" class="form-control" id="longitud" name="longitud" placeholder="23.453789" step="0.00000000001" value="<%=empresa?empresa.longitud:''%>" readonly="true">
+  	<label for="" id="labelLongitud"></label>
+</div>
+<div class="d-flex justify-content-center">
+	<div id="main_map">
+	 	
+	</div>
+</div>
+
+<div class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary mb-3" id="btnEnviar">Enviar</button>
+</div>
+

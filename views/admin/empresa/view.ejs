@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('../../layouts/head');%></head>
+<body>
+	<header><%- include('../../layouts/header');%></header>
+	<div class="d-flex justify-content-center">
+		<h1>Empresa <%=empresa.denominacion%></h1>
+	</div>
+	<label for="">Telefono: <%=empresa.telefono%></label> <br>
+	<label for="">Horario de Atención: <%=empresa.horario_atencion%></label> <br>
+	<label for="">¿Quienes Somos?: <%=empresa.quienes_somos%></label> <br>
+	<label for="">Latitud: <%=empresa.latitud%></label> <br>
+	<label for="">Longitud: <%=empresa.longitud%></label> <br>
+	<label for="">Domicilio: <%=empresa.domicilio%></label> <br>
+	<label for="">Email: <%=empresa.email%></label> <br>
+
+	<footer><%- include('../../layouts/footer');%></footer>
+</body>
+</html>

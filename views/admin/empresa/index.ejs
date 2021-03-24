@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('../../layouts/head');%></head>
+<body>
+	<header><%- include('../../layouts/header');%></header>
+
+	<a href="/admin/empresa/create" class="link-create"><button class="btn btn-primary">Crear Empresa</button></a>
+	<table class="table table-dark table-striped">
+		
+	 	<tr>
+	 		<th>ID</th>
+	 		<th>Denominación</th>
+	 		<th>Teléfono</th>
+	 		<th>Horario de Atención</th>
+	 		<th>Quienes Somos</th>
+	 		<th>Latitud</th>
+	 		<th>Longitud</th>
+	 		<th>Domicilio</th>
+	 		<th>Email</th>
+	 		<th>Fecha de Creación</th>
+	 		<th>Fecha de Actualización</th>
+	 		<th>Acciones</th>
+	 	</tr>
+	 	
+	 	<% empresas.forEach(function(empresa){ %>
+	 		<tr>
+	 			<td><%=empresa.id_empresa%></td>
+	 			<td><%=empresa.denominacion%></td>
+	 			<td><%=empresa.telefono%></td>
+	 			<td><%=empresa.horario_atencion%></td>
+	 			<td><%=empresa.quienes_somos%></td>
+	 			<td><%=empresa.latitud%></td>
+	 			<td><%=empresa.longitud%></td>
+	 			<td><%=empresa.domicilio%></td>
+	 			<td><%=empresa.email%></td>
+	 			<td><%=
+	 				empresa.createdAt.getDate()+'/'+
+	 				(empresa.createdAt.getMonth()+1)+'/'+
+	 				empresa.createdAt.getFullYear()
+	 				%>
+	 			</td>
+	 			<td><%=
+	 				empresa.updatedAt.getDate()+'/'+
+	 				(empresa.updatedAt.getMonth()+1)+'/'+
+	 				empresa.updatedAt.getFullYear()
+	 				%>
+	 			</td>
+	 			<td>
+	 				<a href="/admin/empresa/view/id/<%=empresa.id_empresa%>" class=""><button class="btn btn-success"><i class="fa fa-eye action-icons" aria-hidden="true"></i></button></a>
+	  				<a href="/admin/empresa/update/id/<%=empresa.id_empresa%>" class=""><button class="btn btn-warning"><i class="fa fa-edit action-icons"></i></button></a>
+	  				<a href="/admin/empresa/delete/id/<%=empresa.id_empresa%>" class=""><button class="btn btn-danger"><i class="fa fa-trash action-icons" ></i></button></a>
+	  			</td>
+	 		</tr>
+		<%})%>
+	</table>
+
+	<footer><%- include('../../layouts/footer');%></footer>
+</body>
+</html>
