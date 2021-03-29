@@ -1,13 +1,14 @@
 <div class="contenedor">
 	<div class="row">
 	    	<div class="col-lg-3 mt-3 d-flex justify-content-center">
-	      		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3349.1261180723404!2d-68.79317868537105!3d-32.921265980928624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDU1JzE2LjYiUyA2OMKwNDcnMjcuNiJX!5e0!3m2!1ses!2sar!4v1607381814866!5m2!1ses!2sar" width="300" height="245" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+				<div id="main_map_footer" style="height: 245px; width: 300px;">
+		
+				</div>	
 	    	</div>
 		    <div class="col-lg-3 mt-3">
-		    	<span>Direccion: Ayohuma N.D 1395</span> <br>
-		    	<span>Telefono: 2614269628</span> <br>
-		    	<span>Celular: 2616145079</span> <br>
-		    	<span>Correo: gabrielbermudez0@gmail.com</span> <br>
+		    	<span>Direccion: <%=session.empresa?session.empresa.domicilio:''%></span> <br>
+		    	<span>Teléfono:<%=session.empresa?' +'+session.empresa.telefono:''%></span> <br>
+		    	<span>Correo: <%=session.empresa? session.empresa.email:''%></span> <br>
 		    </div>
 		    <div class="col-lg-2 mt-2">
 	                <!-- weather widget start -->
@@ -32,3 +33,6 @@
 
 
 <script type="text/javascript" src="/javascripts/maps.js"></script>
+<script type="text/javascript">
+	MapsFooter("<%=session.empresa?session.empresa.latitud:0%>", "<%=session.empresa?session.empresa.longitud:0%>");
+</script>

@@ -4,17 +4,34 @@
 
 <body>
 	<header><%- include('../layouts/header'); %></header>
-	<h1><%=message%></h1>
+	<div class="d-flex justify-content-center">
+		<h1><%=message%></h1>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card">
+				 	<img src="/images/producto.jpeg" class="card-img-top" alt="...">
+				  	<div class="card-body">
+				    	<a href="empresa/index">Crear Empresa</a>
+				  	</div>
+				</div>
+			</div>
 
-	<div class="container options">
-		<div class="card" style="width: 18rem;">
-		 	<img src="/images/producto.jpeg" class="card-img-top" alt="...">
-		  	<div class="card-body">
-		    	<a href="empresa/index">Crear Empresa</a>
-		  	</div>
+			<div class="col-md-6">
+				<div class="card">
+				 	<img src="/images/producto.jpeg" class="card-img-top" alt="...">
+				  	<div class="card-body">
+				    	<a href="noticia/index">Crear Noticia</a>
+				  	</div>
+				</div>
+			</div>
 		</div>
 	</div>
-
+	<div class="d-flex justify-content-center mb-3 mt-3">
+        <button type="button" class="btn btn-warning" onclick="window.history.go(-1)"><i class="fa fa-reply"></i>
+        Volver</button>
+    </div>
 	<footer><%- include('../layouts/footer'); %></footer>
 </body>
 </html>

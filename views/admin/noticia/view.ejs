@@ -6,36 +6,34 @@
 	<div class="d-flex justify-content-center container">
 		<table class="table table-striped table-hover">
 			<tr>
-				<th>Empresa: </th>
-				<td><%=empresa.denominacion%></td>
+				<th>Título: </th>
+				<td><%=noticia[0].titulo_noticia%></td>
 			</tr>
 			<tr>
-				<th>Teléfono:</th>
-				<td><%=empresa.telefono%></td>
+				<th>Resumen:</th>
+				<td><%=noticia[0].resumen_noticia%></td>
 			</tr>
 			<tr>
-				<th>Horario de Atención:</th>
-				<td><%=empresa.horario_atencion%></td>
+				<th>Imagen:</th>
+				<td><img src="<%=noticia[0].imagen_noticia%>" alt="" style="width:200px"></td>
 			</tr>
 			<tr>
-				<th>¿Quienes Somos?:</th>
-				<td><%=empresa.quienes_somos%></td>
+				<th>Contenido:</th>
+				<td><%=noticia[0].contenido_html%></td>
 			</tr>
 			<tr>
-				<th>Latitud:</th>
-				<td><%=empresa.latitud%></td>
+				<th>Publicada:</th>
+				<td><%=noticia[0].publicada?'Si':'No'%></td>
 			</tr>
 			<tr>
-				<th>Longitud:</th>
-				<td><%=empresa.longitud%></td>
+				<th>Fecha de Publicación:</th>
+				<td><%=noticia[0].fecha_publicacion%></td>
 			</tr>
 			<tr>
-				<th>Domicilio:</th>
-				<td><%=empresa.domicilio%></td>
-			</tr>
-			<tr>
-				<th>Email:</th>
-				<td><%=empresa.email%></td>
+				<th>Empresa:</th>
+				<td>
+		 			<a href="/admin/empresa/view/id/<%=noticia.id_empresa%>" class="link-noticia"><%=noticia[0].denominacion%></a>
+		 		</td>
 			</tr>
 		</table>
 	</div>

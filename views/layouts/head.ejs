@@ -14,6 +14,16 @@
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script> <!-- Implement js of leaflet -->
 
-<title>Jazmin Store</title>
+<title><%=session.empresa?session.empresa.denominacion:'Denominacion'%></title>
 
 <script src="https://kit.fontawesome.com/b93fca0156.js" crossorigin="anonymous"></script> <!-- Implement js of fontawesome, this contain icons -->
+
+<!-- TYNYMCE -->
+<script src="https://cdn.tiny.cloud/1/rhj8yj4vftdxrcc0dqp0x6wojx3693fj5ryo7454y3gbrmbg/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script type="text/javascript" src="/javascripts/tiny.js"></script>
+
+<!-- Tittillium Web -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
+

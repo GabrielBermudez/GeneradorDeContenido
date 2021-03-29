@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('../../layouts/head');%></head>
+<body>
+	<header><%- include('../../layouts/header');%></header>
+
+	<a href="/admin/noticia/create" class="link-create"><button class="btn btn-primary m-3">Crear Noticias</button></a>
+
+	<table class="table table-dark table-striped m-2">
+	 	<tr>
+	 		<th>ID</th>
+	 		<th>Imagen</th>
+	 		<th>Titulo</th>
+	 		<th>Resumen</th>
+	 		<th>Contenido</th>
+	 		<th>Publicada</th>
+	 		<th>Fecha de Publicacion</th>
+	 		<th>Empresa Asociada</th>
+	 		<td>Fecha de Creación</td>
+	 		<td>Fecha de Actualización</td>
+	 		<th>Acciones</th>
+	 	</tr>
+	 	<%noticias.forEach((noticia) => {%>
+	 		<tr>
+		 		<td><%=noticia.id_noticia%></td>
+		 		<td><img src="<%=noticia.imagen_noticia%>" alt="" style="width: 100px; border-radius: 100px;"></td>
+		 		<td><%=noticia.titulo_noticia%></td>
+		 		<td><%=noticia.resumen_noticia%></td>
+		 		<td><a href="/admin/noticia/preview/id/<%=noticia.id_noticia%>" class="link-noticia">Visualizar</a></td>
+		 		<td><%=noticia.publicada?'Si':'No'%></td>
+		 		<td><%=noticia.fecha_publicacion%></td>
+		 		<td>
+		 			<a href="/admin/empresa/view/id/<%=noticia.id_empresa%>" class="link-noticia"><%=noticia.denominacion%></a>
+		 		</td>
+		 		<td><%=noticia.createdAt.getDate()+'/'+
+	 				  (noticia.createdAt.getMonth()+1)+'/'+
+	 				   noticia.createdAt.getFullYear()
+	 				%>
+		 		</td>
+		 		<td><%=noticia.updatedAt.getDate()+'/'+
+		 			  (noticia.updatedAt.getMonth()+1)+'/'+
+		 			   noticia.updatedAt.getFullYear()
+		 			%>
+		 		</td>
+		 		<td>
+	 				<a href="/admin/noticia/view/id/<%=noticia.id_noticia%>" class=""><button class="btn btn-success"><i class="fa fa-eye action-icons" aria-hidden="true"></i></button></a>
+	  				<a href="/admin/noticia/update/id/<%=noticia.id_noticia%>" class=""><button class="btn btn-warning"><i class="fa fa-edit action-icons"></i></button></a>
+	  				<a href="/admin/noticia/delete/id/<%=noticia.id_noticia%>" class=""><button class="btn btn-danger"><i class="fa fa-trash action-icons" ></i></button></a>
+		  		</td>
+		  	</tr>
+	 	<%})%>
+	</table>
+
+	<div class="d-flex justify-content-center mb-3 mt-3">
+        <button type="button" class="btn btn-warning" onclick="window.history.go(-1)"><i class="fa fa-reply"></i>
+        Volver</button>
+    </div>
+
+	<footer><%- include('../../layouts/footer');%></footer>
+</body>
+</html>

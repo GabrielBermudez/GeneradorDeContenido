@@ -10,13 +10,15 @@
 </div>
 <div class="mb-3">
 	<%
-		let horarios = empresa.horario_atencion.split('-')
+    let horarios = null
+    if(empresa != null)
+		  horarios = empresa.horario_atencion.split('-')
 	%>
   <label for="label-horario-atencion" class="form-label">Horario de Atención</label> <br>
   <label for="">Desde</label>
-  <input type="time" class="form-control" id="horario-atencion-desde" name="horario_atencion_desde" value="<%=horarios[0]%>">
+  <input type="time" class="form-control" id="horario-atencion-desde" name="horario_atencion_desde" value="<%=horarios?horarios[0]:''%>">
   <label for="">Hasta</label>
-  <input type="time" class="form-control" id="horario-atencion-hasta" name="horario_atencion_hasta" value="<%=horarios[1]%>">
+  <input type="time" class="form-control" id="horario-atencion-hasta" name="horario_atencion_hasta" value="<%=horarios?horarios[1]:''%>">
 
   <label for="" id="labelHorarioAtencion"></label>
 </div>

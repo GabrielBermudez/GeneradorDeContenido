@@ -4,19 +4,14 @@
 <body>
 	<header><%- include('../../layouts/header');%></header>
 	<div class="d-flex justify-content-center">
-		<h1>Crear Empresa</h1>
+		<h1>Crear Noticia</h1>
 	</div>
 	<div class="d-flex justify-content-center" >
-		<form method="POST" action="/admin/empresa/create" id="form">
+		<form method="POST" action="/admin/noticia/create" id="form" enctype="multipart/form-data">
 			<%- include('_form');%>
 		</form>	
 	</div>
 	
 	<footer><%- include('../../layouts/footer');%></footer>
-	<%if (empresa != null){%>
-		<script type="text/javascript">
-			AddMarker("<%=empresa.latitud%>", "<%=empresa.longitud%>");
-		</script>
-	<%}%>
 </body>
 </html>

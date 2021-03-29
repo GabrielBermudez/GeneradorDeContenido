@@ -3,7 +3,7 @@ const Sequelize = require('sequelize') //Libreria
 let conexion_sequelize = require('../controllers/Conexion_sequelize'); //Objeto de la clase Conexion_sequelize
 let conexion = conexion_sequelize.conexion(); //Objeto retornado de la conexion de sequelize
 
-const empresa = conexion.define('empresa', {
+empresa = conexion.define('empresa', {
 	id_empresa: {type: Sequelize.SMALLINT, primaryKey: true},
 	denominacion: Sequelize.STRING,
 	telefono: Sequelize.STRING,
@@ -20,26 +20,15 @@ exports.FindAll = () => {
 }
 
 
-exports.FindById = function(id) {
+exports.FindById = (id) => {
 	return empresa.findOne({
-		attributes: [
-			'id_empresa', 
-			'denominacion', 
-			'telefono', 
-			'horario_atencion',
-			'quienes_somos',
-			'latitud',
-			'longitud',
-			'domicilio',
-			'email'
-		], 
 		where: {
 	        id_empresa: id
 	    }
 	})
 }
 
-exports.CreateEmpresa = function(req){
+exports.CreateEmpresa = (req) => {
 	let {denominacion,
 		telefono,
 		horario_atencion_desde,
@@ -65,7 +54,7 @@ exports.CreateEmpresa = function(req){
 	})
 }
 
-exports.UpdateEmpresa = function(req) {
+exports.UpdateEmpresa = (req) => {
 	let {denominacion,
 		telefono,
 		horario_atencion_desde,
@@ -93,10 +82,11 @@ exports.UpdateEmpresa = function(req) {
 	)
 }
 
-exports.DeleteEmpresa = function(req){
+exports.DeleteEmpresa = (req) => {
 	return empresa.destroy({
 		where: {
 	        id_empresa: req.params.id
 	    }
 	})
 }
+
