@@ -89,13 +89,11 @@ exports.FindAllWithRelation = () => {
 )}
 
 exports.FindAllByFK = (fk) => {
-	return noticia.findAll({
-		where:{
-			empresa_idempresa: fk
+	return conexion.query(`SELECT * FROM noticias WHERE empresa_idempresa = ${fk} ORDER BY id_noticia DESC LIMIT 5;`,
+		{ 
+			type: conexion.QueryTypes.SELECT
 		}
-		
-	})
-}
+)}
 
 exports.FindAllWithRelationByID = (id) => {
 	return conexion.query(`SELECT * FROM noticias LEFT JOIN empresas ON noticias.empresa_idempresa = empresas.id_empresa WHERE id_noticia =${id};`,
@@ -103,4 +101,12 @@ exports.FindAllWithRelationByID = (id) => {
 			type: conexion.QueryTypes.SELECT
 		}
 		
+)}
+
+
+exports.FindBySearch = (fk,search) => {
+	return conexion.query(`SELECT * FROM noticias WHERE empresa_idempresa = ${fk} AND titulo_noticia LIKE "%${search}%" ORDER BY fecha_publicacion DESC LIMIT 20`,
+		{ 
+			type: conexion.QueryTypes.SELECT
+		}
 )}

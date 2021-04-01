@@ -39,7 +39,7 @@ function onMapClick(e) {
     oldMarker = marker;
 }
 
-function MapsFooter(latitud,longitud){
+function MapsFooter(latitud,longitud,denominacion,telefono,domicilio,email){
     var map_footer = L.map('main_map_footer').setView([latitud,longitud],15);
 
     var greenIcon = L.icon({
@@ -56,8 +56,8 @@ function MapsFooter(latitud,longitud){
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
         attribution: '&copy; <a href="https://wwww.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map_footer);
-    console.log(latitud,longitud)
-    L.marker([latitud, longitud]).addTo(map_footer).bindPopup('<p>Latitud :'+latitud+ '<br> Longitud: '+longitud);
+
+    L.marker([latitud, longitud]).addTo(map_footer).bindPopup(`${denominacion} Empresa <br> Telefono: ${telefono} <br> Domicilio: ${domicilio} <br> Email: ${email}` );
 
 }
 

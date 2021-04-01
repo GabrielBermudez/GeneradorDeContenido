@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height:100px;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
     <%=session.empresa?session.empresa.denominacion:'Denominacion'%></a>
@@ -16,16 +16,16 @@
       </ul>
     </div>
     <div class="p-5">
-      <form class="d-flex">
-          <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
+      <form class="d-flex" action="/client/home/id/<%=session.empresa?session.empresa.id_empresa:0%>/search/" method="POST">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search">
           <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   
     <span class="button-register-login">
-        <p class="nav-link active" style="color:white">Teléfono: <%=session.empresa?'+'+session.empresa.telefono:'0800-2345-6789'%></p>
         <%let horario = session.empresa? session.empresa.horario_atencion.split('-'):''%>
-        <p class="nav-link active" style="color:white"><%-horario!=''?'Apertura: '+horario[0]+"<br>Cierre: "+horario[1]:'6am-4pm PST M-Th;  6am-3pm PST Fri'%></p>
+        <p class="nav-link active" style="color:white">Teléfono: <%=session.empresa?'+'+session.empresa.telefono:'0800-2345-6789'%> <br>
+          <%-horario!=''?'Apertura: '+horario[0]+"<br>Cierre: "+horario[1]:'6am-4pm PST M-Th;  6am-3pm PST Fri'%></p>
     </span>
   </div>
 </nav>
